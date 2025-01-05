@@ -6,11 +6,13 @@ function totalSales(sales, department) {
 
 function recursiveTotalSales(sales, department, count, total) {
   if (sales.length === 0) return [count, total];
-  const sale = sales[0];
-  if (sale[3] === department) {
+  const salesInfo = sales[0];
+  console.log(`salesInfo: ${salesInfo}`)
+  if (salesInfo[3] === department) {
     count += 1;
-    total += Number(sale[2]);
+    total += Number(salesInfo[2]);
   }
+  console.log(`total: ${total}`);
   newSales = sales.slice(1);
   return recursiveTotalSales(newSales, department, count, total);
 }
